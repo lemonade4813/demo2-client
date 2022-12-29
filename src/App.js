@@ -6,11 +6,13 @@ import History from './component/history';
 import Login from './component/login'
 import Keyword from './component/keyword';
 import BookDetail from './component/bookDetail';
-
+import './App.css'
 
 function App() {
   return (
-      <BrowserRouter>
+
+    <div className="App">
+    <BrowserRouter>
           <header>
               <Link to ="/book">
                   <button>도서 검색</button>  
@@ -31,6 +33,7 @@ function App() {
              <Route path="/book/detail/:title" element = {<BookDetail/>}/>
           </Routes>
       </BrowserRouter>
+    </div>
   );
 }
 

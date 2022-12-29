@@ -2,7 +2,7 @@ export default function history(){
 
 
     return(
-            <h1>조회 내역 페이지입니다.</h1>
+            <h1>내가 검색 한 키워드의 히스토리입니다.</h1>
 
     )
 }
