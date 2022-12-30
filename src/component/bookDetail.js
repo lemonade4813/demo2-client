@@ -3,24 +3,7 @@ import { useParams } from "react-router-dom"
 
 export default function BookDetail(props){
 
-
-    let {title} = useParams();
-
-    let findBook = props.bookList.find((book) => {
-        return book.title === title;
-      });
-    
-    /*const [findBook, bookInfo] = useState([]);
-
-    useEffect(()=>{
-
-        fetch(`http://localhost:8080/kakao/${title}`)
-        .then((response) => response.json())
-        .then((data) => {bookInfo(data.documents)
-                console.log(data.documents)}
-        );
-    },[])
-*/
+ 
     return(
             <table>
                 <tbody>
@@ -36,15 +19,15 @@ export default function BookDetail(props){
                         <th>판매가</th>
                     </tr>
                     <tr>
-                        <td>{findBook.title}</td>
-                        <td><img src = "{findBook.thumbnail}" alt="thumbnail"/></td>
-                        <td>{findBook.contents}</td>
-                        <td>{findBook.isbn}</td>
-                        <td>${findBook.author.toString()}</td>
-                        <td>{findBook.publisher}</td>    
-                        <td>{findBook.datetime}</td>
-                        <td>{findBook.price}</td>
-                        <td>{findBook.sale_price}</td>
+                        <td>{props.bookDetail.title}</td>
+                        <td><img src ={props.bookDetail.thumbnail} alt="thumbnail"/></td>
+                        <td>{props.bookDetail.contents}</td>
+                        <td>{props.bookDetail.isbn}</td>
+                        <td>{props.bookDetail.authors}</td>
+                        <td>{props.bookDetail.publisher}</td>    
+                        <td>{props.bookDetail.datetime}</td>
+                        <td>{props.bookDetail.price}</td>
+                        <td>{props.bookDetail.sale_price}</td>
                     </tr>
                 </tbody>
             </table>

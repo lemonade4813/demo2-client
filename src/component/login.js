@@ -39,7 +39,7 @@ export default function Login(){
             if(!response.ok){
                 return Promise.reject(json);
             }
-            alert(`로그인이 정상적으로 되었습니다. 아이디 : ${json.userId}`);
+            alert(`로그인이 정상적으로 되었습니다. 아이디 : ${json.userId} 비밀번호 : ${json.password}`);
             localStorage.setItem("userId", json.userId);
             return json;
         }).then(window.location.href="/book")
@@ -49,11 +49,13 @@ export default function Login(){
     return(
     <div>
         <h1>로그인</h1>
-        <form onSubmit={registerUser}>
-            아이디<input type = "text" onChange={userIdChange}/>
-            패스워드<input type = "password" onChange={passwordChange}/>
+        <div className ="loginForm">
+            <form onSubmit={registerUser}>
+            <p>아이디 <input type = "text" onChange={userIdChange}/></p>
+            <p>패스워드 <input type = "password" onChange={passwordChange}/></p>
             <input type = "submit"/>
         </form>
+        </div>
         <Link to ="signup" ><button>회원가입</button></Link>
     </div>
     )

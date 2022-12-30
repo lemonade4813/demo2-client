@@ -26,9 +26,20 @@ button{
 
 table th{
   background-color : #000;
+  width : 200px;
   color : #fff;
 }
 
 table td{
   border : 1px solid #000
+}
+
+.signupForm, .loginForm{
+  margin-bottom: 15px;
+
+}
+
+.keywordNumber{
+  height: 30px;
+  width : 250px;
 }

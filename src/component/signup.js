@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 
 export default function Signup (){
 
+   
     const [userId, setUserId] = useState("")
     const [password, setPassword] = useState("")
 
@@ -41,13 +42,17 @@ export default function Signup (){
     }
     return(
     <div>
+        <div className ="signupForm">
         <h1>회원가입</h1>
         <form onSubmit={registerUser}>
-            아이디<input type = "text" onChange={userIdChange}/>
-            패스워드<input type = "password" onChange={passwordChange}/>
+            <p>아이디 <input type = "text" onChange={userIdChange}/></p>
+            <p>패스워드 <input type = "password" onChange={passwordChange}/></p>
             <input type = "submit"/>
         </form>
+        </div>
         <Link to ="/" ><button>로그인</button></Link>
+        
     </div>
+
     )
 }
