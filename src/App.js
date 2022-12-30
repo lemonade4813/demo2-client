@@ -30,7 +30,6 @@ function App() {
               <Route path="/book" element = {<Book/>}/>
               <Route path="/history" element = {<History/>}/>
               <Route path="/keyword" element = {<Keyword/>}/>
-             <Route path="/book/detail/:title" element = {<BookDetail/>}/>
           </Routes>
       </BrowserRouter>
     </div>
