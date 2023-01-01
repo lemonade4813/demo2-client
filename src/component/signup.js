@@ -10,15 +10,15 @@ export default function Signup (){
     const userIdChange = (e) => {
         setUserId(e.target.value)
     }
-
+  
     const passwordChange = (e) =>{
         setPassword(e.target.value)
 
     }
 
-    const registerUser = (e) =>{
+    const registerUser = async (e) =>{
         e.preventDefault();
-        fetch("http://localhost:8080/user/signup",
+        await fetch("http://localhost:8080/user/signup",
             {
                 method : "POST",
                 body : JSON.stringify({
@@ -34,9 +34,10 @@ export default function Signup (){
             if(!response.ok){
                 return Promise.reject(json)
             }
+            alert(`회원가입이 정상적으로 되었습니다. 아이디 : ${json.userId} 비밀번호 : ${json.password}`);
             console.log(json)
             return json;
-        })
+        }).then(window.location.href="/book")
         
         );
     }

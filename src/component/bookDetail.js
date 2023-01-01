@@ -5,6 +5,7 @@ export default function BookDetail(props){
 
  
     return(
+            <>
             <table>
                 <tbody>
                     <tr>
@@ -31,5 +32,8 @@ export default function BookDetail(props){
                     </tr>
                 </tbody>
             </table>
+    
+        <button onClick={props.bookDetailClose}>닫기</button>
+        </>
     )
 }

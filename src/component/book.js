@@ -11,6 +11,9 @@ export default function Book(){
         window.location.href = "/"
     }
 
+    const userId = localStorage.getItem("userId")
+
+
     const [page, setPage] = useState(1) 
     const [size, setSize] = useState(10)
     const [totalCount, setTotalCount] = useState("")
@@ -18,25 +21,19 @@ export default function Book(){
     const [bookList, setBookList] = useState([]);
     const [bookDetailYN, setBookDetailYN] = useState(false);
     const [bookDetail , setBookDetail] = useState([])
-
+    console.log(bookDetailYN)
 
     const getBookList = async () => {
-
-        if(keyword === ""){
-            alert("키워드를 입력하세요")
-            return;
-        }
-
-        const url = `http://localhost:8080/kakao?keyword=${keyword}&page=${page}&size=${size}`
-
-        console.log(url)
+        const url = `http://localhost:8080/kakao?keyword=${keyword}&page=${page}&size=${size}&userId=${userId}`
 
         await fetch(url)
         .then((response) => response.json())
         .then((data) => {setBookList(data.documents)
-                        setTotalCount(data.meta.total_count)
-                    }
-        );
+                        setTotalCount(data.meta.total_count)})
+        .catch((error)=>{
+            console.log(error)
+        })
+        ;
     }
     
     useEffect(()=>{
@@ -56,7 +53,6 @@ export default function Book(){
 
     const sizeChange = (e) => {
         setSize(e.target.value)
-        console.log(e.target.value.toString())
     }
 
     const showDetail = (e) =>{
@@ -66,18 +62,21 @@ export default function Book(){
         setBookDetail(bookList[number-1])
     }
 
+    const bookDetailClose = () =>{
+        setBookDetailYN(false)
+    }
 
     return(
             <div>
             <h1>도서 검색 페이지 입니다</h1>
-
+          
             <div>
                 <p>키워드 입력 <input className = "keywordBook" type="text" onChange={keywordChange} placeholder="검색할 도서명을 입력하세요"/></p>
                 
                 {/*<span>조회 페이지  <input onChange = {pageChange} type="text"/></span>*/}<span>표시할 검색 갯수  <input className = "keywordNumber" onChange = {sizeChange} type="text"/></span>
             
                 <p><input type="button" onClick={getBookList} value="검색" className ="submit-btn"/></p>
-
+                <strong><p style={{color:"red"}}>번호 클릭시 페이지 하단에 해당 도서의 상세정보가 표시됩니다.</p></strong>
             </div>
 
             <table style={{margin:"0px auto"}}>
@@ -105,11 +104,11 @@ export default function Book(){
             </table>
             
 
-            <Paging totalCount={totalCount} page={page} postPerPage={size} pageRangeDisplayed={10} 
+           <Paging totalCount={totalCount} page={page} postPerPage={size} pageRangeDisplayed={10} 
               handlePageChange={pageChange} />  
-            
+              
                 
-            {bookDetailYN && <BookDetail bookDetail = {bookDetail}/>}
+            {bookDetailYN && <BookDetail bookDetail = {bookDetail} bookDetailClose={bookDetailClose}/>}
         
             
             </div>

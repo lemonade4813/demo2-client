@@ -21,9 +21,9 @@ export default function Login(){
 
     }
 
-    const registerUser = (e) =>{
+    const registerUser = async (e) =>{
         e.preventDefault();
-        fetch("http://localhost:8080/user/signin",
+        await fetch("http://localhost:8080/user/signin",
             {
                 method : "POST",
                 body : JSON.stringify({
@@ -39,7 +39,7 @@ export default function Login(){
             if(!response.ok){
                 return Promise.reject(json);
             }
-            alert(`로그인이 정상적으로 되었습니다. 아이디 : ${json.userId} 비밀번호 : ${json.password}`);
+            alert(`로그인이 정상적으로 되었습니다. 아이디 : ${json.userId}`);
             localStorage.setItem("userId", json.userId);
             return json;
         }).then(window.location.href="/book")
