@@ -73,7 +73,7 @@ export default function Book(){
             <div>
                 <p>키워드 입력 <input className = "keywordBook" type="text" onChange={keywordChange} placeholder="검색할 도서명을 입력하세요"/></p>
                 
-                {/*<span>조회 페이지  <input onChange = {pageChange} type="text"/></span>*/}<span>표시할 검색 갯수  <input className = "keywordNumber" onChange = {sizeChange} type="text"/></span>
+                {/*<span>조회 페이지  <input onChange = {pageChange} type="text"/></span>*/}<span>페이지당 표시할 검색 갯수  <input className = "keywordNumber" onChange = {sizeChange} type="text"/></span>
             
                 <p><input type="button" onClick={getBookList} value="검색" className ="submit-btn"/></p>
                 <strong><p style={{color:"red"}}>번호 클릭시 페이지 하단에 해당 도서의 상세정보가 표시됩니다.</p></strong>
