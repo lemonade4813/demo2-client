@@ -19,18 +19,14 @@ export default function History(){
     const refresh = async () =>{
         await fetch(`http://localhost:8080/retrieveMyList?userId=${userId}`)
         .then((response) => response.json())
-        .then((datas) =>{
-        if(!datas.ok){
-            return Promise.reject(datas)
-        }
-        setHistoryList(datas.data)
+        .then((datas) => {setHistoryList(datas.data)
                         console.log(datas)
-                        console.log(datas.data)
-        })
+                        console.log(datas.data)}
+        )
         .catch((error)=>{
             console.log(error);
-        });
-        
+        })
+        ;
     }
 
     return(
@@ -41,7 +37,7 @@ export default function History(){
         <table style={{margin:"0px auto"}}>
                 <tbody>
                 <tr>
-                    <th>검색 일시</th>
+                    <th>조회 일시</th>
                     <th>키워드</th>
                 </tr>
             {historyList.map((list, index) => (

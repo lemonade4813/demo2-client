@@ -19,11 +19,7 @@ export default function Keyword(){
     const refresh = async (e) =>{
         await fetch("http://localhost:8080/top10")
         .then((response) => response.json())
-        .then((data) => {
-            if(!data.ok){
-                return Promise.reject(data)
-            }
-            setKeywordList(data)})
+        .then((data) => {setKeywordList(data)})
         .catch((error)=>{
             console.log(error);
         });
