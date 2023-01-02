@@ -19,10 +19,14 @@ export default function History(){
     const refresh = async () =>{
         await fetch(`http://localhost:8080/retrieveMyList?userId=${userId}`)
         .then((response) => response.json())
-        .then((datas) => {setHistoryList(datas.data)
+        .then((datas) =>{
+        if(!datas.ok){
+            return Promise.reject(datas)
+        }
+        setHistoryList(datas.data)
                         console.log(datas)
-                        console.log(datas.data)}
-        )
+                        console.log(datas.data)
+        })
         .catch((error)=>{
             console.log(error);
         });
