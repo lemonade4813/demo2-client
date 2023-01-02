@@ -37,7 +37,7 @@ export default function History(){
         <table style={{margin:"0px auto"}}>
                 <tbody>
                 <tr>
-                    <th>조회 일시</th>
+                    <th>검색 일시</th>
                     <th>키워드</th>
                 </tr>
             {historyList.map((list, index) => (

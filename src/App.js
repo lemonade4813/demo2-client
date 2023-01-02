@@ -5,11 +5,15 @@ import Book from './component/book';
 import History from './component/history';
 import Login from './component/login'
 import Keyword from './component/keyword';
-import BookDetail from './component/bookDetail';
 import './App.css'
 
 function App() {
-  return (
+
+  const logout = () =>{
+    localStorage.removeItem("userId")
+    window.location.href ="/"
+  }
+    return (
 
     <div className="App">
     <BrowserRouter>
@@ -23,6 +27,7 @@ function App() {
               <Link to ="/keyword">
                   <button>인기 키워드 목록</button>
               </Link>
+                  <button onClick={logout}>로그아웃</button>
           </header>
           <Routes>
               <Route path="/" element = {<Login/>}/>
@@ -31,7 +36,7 @@ function App() {
               <Route path="/history" element = {<History/>}/>
               <Route path="/keyword" element = {<Keyword/>}/>
           </Routes>
-      </BrowserRouter>
+      </BrowserRouter> 
     </div>
   );
 }
