@@ -30,7 +30,8 @@ export default function Signup (){
             },
             }    
         ).then((response) => 
-        response.json().then((json)=>{
+        response.json()
+        .then((json)=>{
             if(!response.ok){
                 return Promise.reject(json)
             }
