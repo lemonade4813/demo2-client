@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {BrowserRouter, Link, Route, Routes} from 'react-router-dom'
 import Signup from './component/signup';
 import Book from './component/book';
@@ -8,6 +8,7 @@ import Keyword from './component/keyword';
 import './App.css'
 
 function App() {
+   
 
   const logout = () =>{
     localStorage.removeItem("userId")
@@ -27,7 +28,7 @@ function App() {
               <Link to ="/keyword">
                   <button>인기 키워드 목록</button>
               </Link>
-                  <button onClick={logout}>로그아웃</button>
+        {localStorage.getItem("userId") && <button onClick={logout}>로그아웃</button>}
           </header>
           <Routes>
               <Route path="/" element = {<Login/>}/>
