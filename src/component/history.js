@@ -25,8 +25,8 @@ export default function History(){
         )
         .catch((error)=>{
             console.log(error);
-        })
-        ;
+        });
+        
     }
 
     return(
