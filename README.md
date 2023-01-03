@@ -1,4 +1,4 @@
-# 카카오 API 활용 책 검색 구현 
+# 카카오 API 활용 책 검색 구현(Front-end)
 
 back-end repository: https://github.com/lemonade4813/demo2
 
