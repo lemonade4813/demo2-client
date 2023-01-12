@@ -52,7 +52,7 @@ export default function Signup (){
             <input type = "submit"/>
         </form>
         </div>
-        <Link to ="/" ><button>로그인</button></Link>
+        <Link to ="/" ><button class="buttonToLogin">로그인</button></Link>
         
     </div>
 

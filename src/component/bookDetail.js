@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
-
-export default function BookDetail(props){
+export default function BookDetail({bookDetail,bookDetailClose}){
 
  
     return(
@@ -20,20 +17,20 @@ export default function BookDetail(props){
                         <th>판매가</th>
                     </tr>
                     <tr>
-                        <td>{props.bookDetail.title}</td>
-                        <td><img src ={props.bookDetail.thumbnail} alt="thumbnail"/></td>
-                        <td>{props.bookDetail.contents}</td>
-                        <td>{props.bookDetail.isbn}</td>
-                        <td>{props.bookDetail.authors}</td>
-                        <td>{props.bookDetail.publisher}</td>    
-                        <td>{props.bookDetail.datetime}</td>
-                        <td>{props.bookDetail.price}</td>
-                        <td>{props.bookDetail.sale_price}</td>
+                        <td>{bookDetail.title}</td>
+                        <td><img src ={bookDetail.thumbnail} alt="thumbnail"/></td>
+                        <td>{bookDetail.contents}</td>
+                        <td>{bookDetail.isbn}</td>
+                        <td>{bookDetail.authors}</td>
+                        <td>{bookDetail.publisher}</td>    
+                        <td>{bookDetail.datetime}</td>
+                        <td>{bookDetail.price}</td>
+                        <td>{bookDetail.sale_price}</td>
                     </tr>
                 </tbody>
             </table>
     
-        <button onClick={props.bookDetailClose}>닫기</button>
+        <button onClick={bookDetailClose}>닫기</button>
         </>
     )
 }

@@ -9,7 +9,6 @@ import './App.css'
 
 function App() {
    
-
   const logout = () =>{
     localStorage.removeItem("userId")
     window.location.href ="/"

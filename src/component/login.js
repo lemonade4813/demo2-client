@@ -3,12 +3,6 @@ import { Link } from "react-router-dom"
 
 export default function Login(){
     
- 
-    if(localStorage.getItem("userId"))
-    {
-        window.location.href = "/book"
-    }
-
     const [userId, setUserId] = useState("")
     const [password, setPassword] = useState("")
 
@@ -42,21 +36,23 @@ export default function Login(){
             alert(`로그인이 정상적으로 되었습니다. 아이디 : ${json.userId}`);
             localStorage.setItem("userId", json.userId);
             return json;
-        }).then(window.location.href="/book")
+        }).then(() =>{
+                      window.location.href="/book"
+                    })
         
         );
     }
     return(
     <div>
         <h1>로그인</h1>
-        <div className ="loginForm">
-            <form onSubmit={registerUser}>
-            <p>아이디 <input type = "text" onChange={userIdChange}/></p>
-            <p>패스워드 <input type = "password" onChange={passwordChange}/></p>
-            <input type = "submit"/>
-        </form>
-        </div>
-        <Link to ="signup" ><button>회원가입</button></Link>
+            <div className ="loginForm">
+                <form onSubmit={registerUser}>
+                    <p>아이디 <input type = "text" onChange={userIdChange}/></p>
+                    <p>패스워드 <input type = "password" onChange={passwordChange}/></p>
+                <input type = "submit"/>
+                </form>
+            </div>
+        <Link to ="signup" ><button class="buttonToSignUp">회원가입</button></Link>
     </div>
     )
     
